@@ -27,6 +27,6 @@ class ApiAutoTestCase(unittest.TestCase):
             self.assertEqual(requestMsgText["msg"],"成功!")
             print ("执行成功：",requestMsgText["data"]["city"],requestMsgText["data"]["forecast"][0])
         except Exception as e:
-            print ("执行失败：",requestMsgText)
+            print ("执行失败：",requestMsgText,"|","异常信息：",e)
     def tearDown(self):
         pass
