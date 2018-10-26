@@ -11,14 +11,16 @@ from ApiData.readXmlData import readXmlData
 
 class ApiAutoTestCase(unittest.TestCase):
     def setUp(self):
+        # 请求的Url
         self.Url = "https://www.apiopen.top/weatherApi"
     def test_case(self):
+        # 定位数据，并把值赋给CityName
         CityName = readXmlData().returnXmlFile("ApiTestData.xml","test_case","city")
         self.Value = {
-            "city": CityName
+            "city": CityName  # 调用CityName的数据
         }
-        requestMsg = requests.post(self.Url,self.Value)
-        requestMsgText = json.loads(requestMsg.text)
+        requestMsg = requests.post(self.Url,self.Value)   # 使用requests扩展库中的post请求方法（url = ,header = ,Data = ）
+        requestMsgText = json.loads(requestMsg.text)     # json.loads，解析成Python可识别的数据
         try:
             self.assertEqual(requestMsg.status_code,200)
             self.assertEqual(requestMsgText["code"],200)
