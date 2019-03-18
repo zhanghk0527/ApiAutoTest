@@ -6,7 +6,9 @@
 请求方式：get/post
 请求参数：city  必填  string
 '''
-import unittest,requests,json
+import unittest
+import requests
+import json
 from ApiData.readXmlData import readXmlData
 
 class ApiAutoTestCase(unittest.TestCase):
